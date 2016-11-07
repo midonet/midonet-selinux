@@ -2,6 +2,7 @@
 SELinux modules for Midonet
 
 Build:
-    mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+
+    rpmdev-setuptree
     spectool -g -R midonet-selinux.spec
     rpmbuild -bb  midonet-selinux.spec
