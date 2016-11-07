@@ -55,21 +55,6 @@ install -m 0644 $MODULES \
 
 %post
 #
-# Port rules
-#
-# bz#1107873
-#%{_sbindir}/semanage port -N -a -t amqp_port_t -p tcp 15672 &> /dev/null
-
-#
-# Booleans & file contexts
-#
-#CR=$'\n'
-#INPUT="boolean -N -m --on virt_use_fusefs
-#boolean -N -m --on glance_use_fusefs
-#fcontext -N -a -t neutron_exec_t %{_bindir}/neutron-ns-metadata-proxy
-#fcontext -N -a -t neutron_exec_t %{_bindir}/neutron-vpn-agent"
-
-#
 # Append modules
 #
 for x in %{modulenames}; do
@@ -106,9 +91,12 @@ fi
 
 %files
 %defattr(-,root,root,0755)
-%doc COPYING
+#%doc COPYING
 %attr(0644,root,root) %{_datadir}/selinux/packages/*.pp.bz2
 %attr(0644,root,root) %{_datadir}/selinux/devel/include/%{moduletype}/*.if
 
 %changelog
+* Mon Nov 07 2016 Abel Boldú <abel.boldu@midokura.com> - 1.0-1
+- Initial release.
+
 
