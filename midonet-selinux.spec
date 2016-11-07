@@ -28,13 +28,13 @@ Requires(post):		selinux-policy-base >= %{selinux_policyver}, selinux-policy-tar
 Requires(postun):	policycoreutils
 BuildRequires:		selinux-policy selinux-policy-devel
 
-Source:			qemu-kvm-tun.te
+Source0:                https://github.com/midonet/%{name}/archive/master.tar.gz
 
 %description
 SELinux policy modules for Midonet
 
-#%prep
-#%setup -q
+%prep
+%setup -n %{name}-master
 
 %build
 make SHARE="%{_datadir}" TARGETS="%{modulenames}"
@@ -111,6 +111,4 @@ fi
 %attr(0644,root,root) %{_datadir}/selinux/devel/include/%{moduletype}/*.if
 
 %changelog
-* mon nov 07 2016 Abel Boldú <abel.boldu@midokura.com> - 1.0-1
-- Update to 1.0
 
