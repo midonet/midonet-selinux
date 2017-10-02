@@ -16,8 +16,8 @@
 
 # Package information
 Name:			midonet-selinux
-Version:1.0
-Release:1%{?dist}
+Version:		1.0
+Release:		2%{?dist}
 License:		GPLv2
 Group:			System Environment/Base
 Summary:		SELinux Policies for Midonet
